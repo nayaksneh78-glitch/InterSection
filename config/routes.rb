@@ -6,4 +6,11 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :tags, :categories, :properties, :neighbourhoods, :property_neighbourhoods, :city_gems,
+                only: %i[index show create update destroy]
+    end
+  end
 end
