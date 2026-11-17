@@ -1,5 +1,5 @@
 ActiveAdmin.register Neighbourhood do
-  permit_params :title, :description, :tag_id, :published
+  permit_params :title, :description, :pin, :tag_id, :published
   config.filters = false
   includes :tag
 
@@ -15,6 +15,7 @@ ActiveAdmin.register Neighbourhood do
     f.inputs do
       f.input :title
       f.input :description
+      f.input :pin, hint: "Latitude, longitude"
       f.input :tag
       f.input :published
     end

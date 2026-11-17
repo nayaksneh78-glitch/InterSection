@@ -3,6 +3,7 @@
   <p class="eyebrow">Your guide from <%= @property.title %></p>
   <h1>Explore your neighbourhood.</h1>
   <% if @property.description.present? %><p><%= @property.description %></p><% end %>
+  <% if @property.address.present? %><p><%= @property.address %></p><% end %>
 </section>
 
 <%= form_with url: property_path(@property), method: :get, local: true, class: "filters" do |form| %>

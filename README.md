@@ -42,8 +42,8 @@ Every endpoint uses `Authorization: Bearer <INTERSECTION_API_TOKEN>` and returns
 | --- | --- | --- |
 | `tags` | `tag` | `title`, `hashtag`, `description` |
 | `categories` | `category` | `title`, `description` |
-| `properties` | `property` | `title`, `description` |
-| `neighbourhoods` | `neighbourhood` | `title`, `description`, `tag_id`, `published` |
+| `properties` | `property` | `title`, `description`, `address` |
+| `neighbourhoods` | `neighbourhood` | `title`, `description`, `pin` (latitude, longitude), `tag_id`, `published` |
 | `property_neighbourhoods` | `property_neighbourhood` | `property_id`, `neighbourhood_id`, `published` |
 | `city_gems` | `city_gem` | `title`, `short_desc`, `long_desc`, `image`, `location`, `tag_id`, `category_id`, `neighbourhood_id`, `published` |
 
