@@ -18,6 +18,6 @@ class PropertiesController < ApplicationController
     @city_gems = @city_gems.where(category: @category) if @category
     @city_gems = @city_gems.where(tag: @tag) if @tag
     @city_gems = @city_gems.where(neighbourhood: @neighbourhood) if @neighbourhood
-    @city_gems.load
+    @city_gems = @city_gems.to_a.uniq { |gem| [gem.title, gem.location] }
   end
 end

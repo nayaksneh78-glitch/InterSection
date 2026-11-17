@@ -13,7 +13,15 @@ class CityGem < ApplicationRecord
   validates :image, length: { maximum: 2048 }
   validate :image_has_http_url, if: -> { image.present? }
 
+  def direct_maps_url
+    return unless location&.match?(%r{\Ahttps://(?:maps\.app\.goo\.gl/|goo\.gl/maps/)[A-Za-z0-9]+\z})
+
+    location
+  end
+
   def google_maps_url
+    return direct_maps_url if direct_maps_url
+
     "https://www.google.com/maps/search/?#{URI.encode_www_form(api: 1, query: "#{title}, #{location}")}"
   end
 

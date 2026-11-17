@@ -12,7 +12,9 @@
   <% if @city_gem.long_desc.present? %>
     <div class="description"><%= simple_format(@city_gem.long_desc, {}, sanitize_options: { tags: [], attributes: [] }) %></div>
   <% end %>
-  <p><%= @city_gem.location %></p>
+  <% unless @city_gem.direct_maps_url %>
+    <p><%= @city_gem.location %></p>
+  <% end %>
   <p class="tag">#<%= @city_gem.tag.hashtag %></p>
   <%= link_to "Open in Google Maps ↗", @city_gem.google_maps_url, target: "_blank", rel: "noopener noreferrer", class: "button" %>
 </article>
